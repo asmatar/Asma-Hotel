@@ -1,4 +1,7 @@
-import React from "react";
+const metadata = {
+  title: "Sign out",
+  description: "Sign out to the application",
+};
 
 const SignOut = () => {
   return <div>SignOut</div>;
