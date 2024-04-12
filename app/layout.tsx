@@ -1,12 +1,15 @@
 import Header from "@/components/Header";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "hotel list",
+  title: {
+    default: "Asma Hotel",
+    template: "%s | Asma Hotel",
+  },
   description: "Display all hotels in the application",
 };
 
@@ -17,10 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cn(roboto.className)}>
         <Header />
         {children}
       </body>
+      {/*     <body className={roboto.className}>
+        <Header />
+        {children}
+      </body> */}
     </html>
   );
 }

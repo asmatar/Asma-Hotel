@@ -1,4 +1,4 @@
-const metadata = {
+export const metadata = {
   title: "Sign In",
   description: "Sign in to the application",
 };
