@@ -6,12 +6,7 @@ export const metadata: Metadata = {
 };
 
 const HotelNew = () => {
-  return (
-    <div>
-      <p>iuhl</p>
-      HotelNew
-    </div>
-  );
+  return <div>HotelNew</div>;
 };
 
 export default HotelNew;

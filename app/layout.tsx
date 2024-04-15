@@ -1,4 +1,7 @@
+import { ClerkProvider } from "@clerk/nextjs";
+
 import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
@@ -19,15 +22,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn(roboto.className)}>
-        <Header />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={(cn(roboto.className), "bg-slate-800")}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ClerkProvider>
+            <Header />
+            {children}
+          </ClerkProvider>
+        </ThemeProvider>
       </body>
-      {/*     <body className={roboto.className}>
-        <Header />
-        {children}
-      </body> */}
     </html>
   );
 }
+/*     <body className={roboto.className}>
+  <Header />
+  {children}
+</body> */
