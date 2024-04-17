@@ -2,7 +2,7 @@
 
 import { useAnimate } from "framer-motion";
 import { useEffect } from "react";
-const FramerDiv = ({ children }: { children: React.ReactNode }) => {
+const FramerDiv = () => {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -38,7 +38,6 @@ const FramerDiv = ({ children }: { children: React.ReactNode }) => {
       <h1 className="text-8xl font-bold opacity-0 ">WELCOME</h1>
       <h2 className="text-8xl font-bold opacity-0">ASMA HOTEL</h2>
       <h3 className="text-8xl font-bold opacity-0 ">BOOK YOUR BEST HOTEL</h3>
-      {children}
     </div>
   );
 };
