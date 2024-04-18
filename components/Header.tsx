@@ -1,10 +1,19 @@
 import { Logo } from "@/components/logo";
 import { UserButton, auth } from "@clerk/nextjs";
 import Link from "next/link";
+import { FaHotel } from "react-icons/fa6";
+import { HiMiniPlus } from "react-icons/hi2";
 import { LuChevronsUpDown } from "react-icons/lu";
+import { TbBrandBooking } from "react-icons/tb";
 import { ModeToggle } from "./theme";
 import Container from "./ui/Container";
 import { Button } from "./ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 const Header = () => {
   const { userId } = auth();
@@ -24,7 +33,27 @@ const Header = () => {
               {userId ? (
                 <>
                   <div className="cursor-pointer">
-                    <LuChevronsUpDown />
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="outline" size="icon">
+                          <LuChevronsUpDown />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem className="flex items-center gap-2">
+                          <HiMiniPlus />
+                          Add Hotel
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="flex items-center gap-2">
+                          <FaHotel />
+                          My Hotels
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="flex items-center gap-2">
+                          <TbBrandBooking />
+                          My Bookings
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </div>
                   <UserButton afterSignOutUrl="/" />
                 </>

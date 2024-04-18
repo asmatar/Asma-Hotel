@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={(cn(roboto.className), "bg-slate-800")}>
+      <body className={cn(roboto.className)}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
