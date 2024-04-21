@@ -1,10 +1,10 @@
-import { Logo } from "@/components/logo";
 import { UserButton, auth } from "@clerk/nextjs";
 import Link from "next/link";
 import { FaHotel } from "react-icons/fa6";
 import { HiMiniPlus } from "react-icons/hi2";
 import { LuChevronsUpDown } from "react-icons/lu";
 import { TbBrandBooking } from "react-icons/tb";
+import { Logo } from "./ClientComponants/Logo";
 import { ModeToggle } from "./theme";
 import Container from "./ui/Container";
 import { Button } from "./ui/button";
@@ -14,7 +14,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-
 const Header = () => {
   const { userId } = auth();
 
