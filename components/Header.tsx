@@ -22,9 +22,9 @@ const Header = () => {
       <header className="sticky top-0 border-b-primary/10 bg-secondary">
         <Container>
           <div className="flex justify-between">
-            <div className="flex gap-2 items-center">
+            <Link href="/" className="flex gap-2 items-center">
               <Logo />
-            </div>
+            </Link>
             <div className="flex gap-2 items-center">
               <div className="cursor-pointer">
                 <ModeToggle />
@@ -39,15 +39,17 @@ const Header = () => {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuItem className="flex items-center gap-2">
-                          <HiMiniPlus />
-                          Add Hotel
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="flex items-center gap-2">
+                        <Link href="/hotel-new">
+                          <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
+                            <HiMiniPlus />
+                            Add Hotel
+                          </DropdownMenuItem>
+                        </Link>
+                        <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                           <FaHotel />
                           My Hotels
                         </DropdownMenuItem>
-                        <DropdownMenuItem className="flex items-center gap-2">
+                        <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                           <TbBrandBooking />
                           My Bookings
                         </DropdownMenuItem>

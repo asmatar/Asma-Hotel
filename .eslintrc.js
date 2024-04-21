@@ -1,24 +1,19 @@
-/* {
-  "extends": "next/core-web-vitals"
-} */
-
-/* {
-  "extends": ["next", "next/core-web-vitals"],
-  "rules": {
-    // Override or add rules here
-    "next/link-passhref": "error",
-    "next/no-img-element": "off" // if you prefer to use <img> tags directly
-  }
-} */
-// .eslintrc.js
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    /*    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended", */
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-prettier",
   ],
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ["@typescript-eslint", "prettier"],
   rules: {
-    'prettier/prettier': 'error',
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
   },
 };

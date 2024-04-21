@@ -3,7 +3,7 @@ import { Dumbbell, MapPin, Waves } from "lucide-react";
 import Image from "next/image";
 /* import FramerDiv from "@/components/framer/div"; */
 
-export default async function Home(client) {
+export default async function Home() {
   const response = await getHotels();
   console.log(response);
 
@@ -19,7 +19,7 @@ export default async function Home(client) {
             <div className="flex-1 aspect-square overflow-hidden relative w-full h-[210px] rounded-s-lg">
               <Image
                 fill
-                src="/figma/hotel-placeholder.jpg"
+                src="/hotel-placeholder.jpg"
                 alt="Logo"
                 className="object-cover w-full h-full"
                 sizes="400px"
