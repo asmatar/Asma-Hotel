@@ -1,9 +1,9 @@
-import { getHotels } from "@/lib/supabaseApi";
+import { getHotels } from "@/lib/supabase/supabaseApi";
 import { Dumbbell, MapPin, Waves } from "lucide-react";
 import Image from "next/image";
 /* import FramerDiv from "@/components/framer/div"; */
 
-export default async function Home() {
+export default async function Home(client) {
   const response = await getHotels();
   console.log(response);
 
@@ -65,7 +65,7 @@ export default async function Home() {
             <div className="flex-1 aspect-square overflow-hidden relative w-full h-[210px] rounded-s-lg">
               <Image
                 fill
-                src="/figma/hotel-placeholder.jpg"
+                src="/hotel-placeholder.jpg"
                 alt="Logo"
                 className="object-cover w-full h-full"
               ></Image>

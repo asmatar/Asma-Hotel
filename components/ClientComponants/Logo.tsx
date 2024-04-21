@@ -7,7 +7,7 @@ export function Logo() {
   const { theme } = useTheme();
   return (
     <Image
-      src={`${theme === "light" ? "/figma/logo-dark.png" : "/figma/logo-light.png"}`}
+      src={`${theme === "light" ? "/logo-dark.png" : "/logo-light.png"}`}
       alt="Logo"
       width={100}
       height={100}
