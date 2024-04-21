@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
@@ -10,8 +11,16 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { PencilLine } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -298,40 +307,127 @@ const HotelNew = () => {
               </div>
             </div>
             <div className="flex-1 flex flex-col  gap-6">
-              <FormField
-                control={form.control}
-                name="country"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Select country *</FormLabel>
-                    <FormDescription>
-                      In wich country is your hotel located
-                    </FormDescription>
-                    <FormControl>
-                      <Input placeholder="select a country" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="country"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Select a Country</FormLabel>
+                      <FormDescription>
+                        Choose a country where your hotel is located.
+                      </FormDescription>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        value={field.value}
+                      >
+                        <SelectTrigger className="bg-background">
+                          <SelectValue
+                            placeholder="select a country"
+                            defaultValue={field.value}
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {/* dynamic from package country-state-city*/}
+                          <SelectItem value="light">country one</SelectItem>
+                          <SelectItem value="dark">counmtry 2</SelectItem>
+                          <SelectItem value="system">country 3</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="state"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Select a State</FormLabel>
+                      <FormDescription>
+                        Choose a state where your hotel is located.
+                      </FormDescription>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        value={field.value}
+                      >
+                        <SelectTrigger className="bg-background">
+                          <SelectValue
+                            placeholder="select a state"
+                            defaultValue={field.value}
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {/* dynamic from package country-state-city*/}
+                          <SelectItem value="light">country one</SelectItem>
+                          <SelectItem value="dark">counmtry 2</SelectItem>
+                          <SelectItem value="system">country 3</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+              </div>
+
               <FormField
                 control={form.control}
                 name="city"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Select city *</FormLabel>
+                    <FormLabel>Select City (Optional)</FormLabel>
                     <FormDescription>
-                      In wich city is your hotel located
+                      In wich city is your hotel located.
+                    </FormDescription>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      value={field.value}
+                    >
+                      <SelectTrigger className="bg-background">
+                        <SelectValue
+                          placeholder="Beach hotel is located at the very end of the beach road"
+                          defaultValue={field.value}
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {/* dynamic from package country-state-city*/}
+                        <SelectItem value="light">country one</SelectItem>
+                        <SelectItem value="dark">counmtry 2</SelectItem>
+                        <SelectItem value="system">country 3</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Location description *</FormLabel>
+                    <FormDescription>
+                      Provide more information about the exact location of your
+                      hotel. Tip, use landmarks like school, hospital, church
+                      and roads
                     </FormDescription>
                     <FormControl>
-                      <Input placeholder="select a city" {...field} />
+                      <Textarea
+                        placeholder="Beach hotel is located at the very end of the beach road"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+              <div className="flex justify-between gap-2 flex-wrap">
+                <Button type="submit">
+                  <PencilLine className="w-4 h-4 mr-2" />
+                  Create Hotel
+                </Button>
+              </div>
             </div>
-            {/*     <Button type="submit">Submit</Button> */}
           </div>
         </form>
       </Form>
